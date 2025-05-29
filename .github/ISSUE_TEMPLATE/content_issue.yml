@@ -1,0 +1,40 @@
+---
+name: Educational Content Issue
+about: Report issues with lessons, code examples, or educational accuracy
+title: '[CONTENT] '
+labels: ['content', 'education', 'needs-review']
+assignees: ''
+---
+
+## Content Issue Type
+- [ ] Incorrect information
+- [ ] Unclear explanation
+- [ ] Missing code example
+- [ ] Broken code example
+- [ ] Typo or grammar error
+- [ ] Missing lesson content
+- [ ] Difficulty level mismatch
+
+## Location
+- **Unit**: Which unit?
+- **Lesson/Section**: Which specific lesson or section?
+- **Page URL**: Direct link if possible
+
+## Current Content
+What does the current content say or show?
+
+## Suggested Improvement
+What should it say or show instead?
+
+## Educational Impact
+- [ ] Confuses students
+- [ ] Provides incorrect information
+- [ ] Makes learning more difficult
+- [ ] Affects code functionality
+- [ ] Accessibility issue
+
+## Source Reference
+If you have a reference for the correct information, please provide it.
+
+## Additional Context
+Any additional context about the content issue.

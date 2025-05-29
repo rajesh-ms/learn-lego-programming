@@ -1,6 +1,11 @@
-# LEGO Python Programming Learning Platform
+# LEGO Python Programming Learning Platform 🤖
 
 A comprehensive web-based learning platform for teaching LEGO robotics programming using Python. This interactive educational resource provides step-by-step lessons, hands-on projects, and coding examples for students learning robotics programming.
+
+[![Deployed on Azure](https://img.shields.io/badge/Deployed%20on-Azure%20Container%20Apps-blue?logo=microsoft-azure)](https://ca-4qqvoafud54ik.victorioussmoke-3eca8c2b.eastus.azurecontainerapps.io/)
+[![Built with Next.js](https://img.shields.io/badge/Built%20with-Next.js%2015-black?logo=next.js)](https://nextjs.org/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-Ready-blue?logo=typescript)](https://www.typescriptlang.org/)
+[![Tailwind CSS](https://img.shields.io/badge/Styled%20with-Tailwind%20CSS-38B2AC?logo=tailwind-css)](https://tailwindcss.com/)
 
 ## 🚀 Features
 
@@ -12,13 +17,15 @@ A comprehensive web-based learning platform for teaching LEGO robotics programmi
 - **Modern UI**: Clean, educational interface built with Tailwind CSS
 - **Progress Tracking**: Navigate through structured learning paths
 - **Learning Resources**: Comprehensive guides, tools, and references
+- **Cloud Deployment**: Fully containerized and deployed on Azure Container Apps
 
-## 🎯 Live Application
+## 🌐 Live Application
 
-The application is currently running on:
+- **Production**: [https://ca-4qqvoafud54ik.victorioussmoke-3eca8c2b.eastus.azurecontainerapps.io/](https://ca-4qqvoafud54ik.victorioussmoke-3eca8c2b.eastus.azurecontainerapps.io/)
 - **Development Server**: http://localhost:3001
 - **Built with**: Next.js 15.3.2, TypeScript, Tailwind CSS
-- **Status**: ✅ Fully functional with all core features implemented
+- **Deployment**: Azure Container Apps with Infrastructure as Code (Bicep)
+
 
 ## 📚 Curriculum Structure
 
@@ -66,13 +73,27 @@ Complex topics like PID controllers, line following, and autonomous navigation
 - **Styling**: Tailwind CSS
 - **Syntax Highlighting**: React Syntax Highlighter with Prism
 - **Code Examples**: Python with PyBricks library
+- **Deployment**: Azure Container Apps
+- **Infrastructure**: Bicep (Infrastructure as Code)
+- **Containerization**: Docker with multi-stage builds
 
-## 🏃‍♂️ Getting Started
+## 🚀 Deployment Architecture
+
+This application is deployed on **Azure Container Apps** with the following architecture:
+
+- **Container Registry**: Azure Container Registry for Docker images
+- **Container Apps**: Serverless container hosting with auto-scaling
+- **Application Insights**: Monitoring and telemetry
+- **Log Analytics**: Centralized logging and diagnostics
+- **Key Vault**: Secure secrets management
+- **Managed Identity**: Azure AD authentication for secure resource access
+
+## 🏃‍♂️ Local Development
 
 1. **Clone the repository**
    ```bash
-   git clone <repository-url>
-   cd learn-lego
+   git clone https://github.com/rajesh-ms/learn-lego-programming.git
+   cd learn-lego-programming
    ```
 
 2. **Install dependencies**
@@ -88,12 +109,64 @@ Complex topics like PID controllers, line following, and autonomous navigation
 4. **Open your browser**
    Visit [http://localhost:3000](http://localhost:3000) to start learning!
 
+## 🐳 Docker Development
+
+1. **Build the Docker image**
+   ```bash
+   docker build -t learn-lego .
+   ```
+
+2. **Run the container**
+   ```bash
+   docker run -p 3000:3000 learn-lego
+   ```
+
+## ☁️ Azure Deployment
+
+This project includes complete Infrastructure as Code (IaC) using Bicep templates and Azure Developer CLI (azd) for easy deployment.
+
+### Prerequisites
+- Azure CLI
+- Azure Developer CLI (azd)
+- Docker Desktop
+
+### Deploy to Azure
+
+1. **Initialize Azure Developer CLI**
+   ```bash
+   azd init
+   ```
+
+2. **Deploy to Azure**
+   ```bash
+   azd up
+   ```
+
+This will:
+- Create all required Azure resources using Bicep templates
+- Build and push the Docker image to Azure Container Registry
+- Deploy the application to Azure Container Apps
+- Configure monitoring and logging
+
+### Infrastructure Components
+
+- **Resource Group**: `rg-learn-lego-{env}`
+- **Container Registry**: `cr{resourceToken}`
+- **Container Apps Environment**: `cae-{resourceToken}`
+- **Container App**: `ca-{resourceToken}`
+- **Log Analytics Workspace**: `log-{resourceToken}`
+- **Application Insights**: `appi-{resourceToken}`
+- **Key Vault**: `kv-{resourceToken}`
+- **Managed Identity**: `id-{resourceToken}`
+
 ## 📱 Available Scripts
 
 - `npm run dev` - Start development server
 - `npm run build` - Build for production
 - `npm run start` - Start production server
 - `npm run lint` - Run ESLint
+- `azd up` - Deploy to Azure
+- `azd down` - Remove Azure resources
 
 ## 🎯 Learning Objectives
 
@@ -104,13 +177,35 @@ Students will learn to:
 - Build real-world robotic solutions
 - Apply programming concepts to physical systems
 
+## 📊 Performance & Monitoring
+
+The application includes:
+- **Application Insights**: Real-time performance monitoring
+- **Log Analytics**: Comprehensive logging and diagnostics
+- **Health Checks**: Container health monitoring
+- **Auto-scaling**: Automatic scaling based on demand
+- **SSL/TLS**: Secure HTTPS connections
+
+## 🔒 Security Features
+
+- **Managed Identity**: No stored secrets for Azure resource access
+- **Key Vault**: Secure storage for sensitive configuration
+- **Container Security**: Non-root user, minimal base image
+- **HTTPS Only**: All traffic encrypted in transit
+- **Resource Isolation**: Dedicated container environment
+
 ## 📖 Curriculum Source
 
 This platform is based on the excellent educational content from [PrimeLessons.org](https://primelessons.org/en/PyLessons.html), adapted for an interactive web-based learning experience.
 
 ## 🤝 Contributing
 
-Contributions are welcome! Please feel free to submit issues or pull requests to improve the learning experience.
+Contributions are welcome! Please:
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Test thoroughly
+5. Submit a pull request
 
 ## 📄 License
 
