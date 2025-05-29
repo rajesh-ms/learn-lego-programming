@@ -1,0 +1,27 @@
+# CODEOWNERS for LEGO Python Programming Learning Platform
+# This file defines who gets automatically requested for review when certain files are changed
+
+# Default owners for everything in the repo
+* @rajesh-ms
+
+# Infrastructure and deployment files
+/infra/ @rajesh-ms
+/azure.yaml @rajesh-ms
+/Dockerfile @rajesh-ms
+/.github/workflows/ @rajesh-ms
+
+# Educational content and curriculum
+/src/app/units/ @rajesh-ms
+/src/components/ @rajesh-ms
+
+# Configuration files
+/*.json @rajesh-ms
+/*.js @rajesh-ms
+/*.ts @rajesh-ms
+/*.config.* @rajesh-ms
+
+# Documentation
+/README.md @rajesh-ms
+/CONTRIBUTING.md @rajesh-ms
+/SECURITY.md @rajesh-ms
+/.github/ @rajesh-ms

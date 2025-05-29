@@ -1,0 +1,47 @@
+---
+name: Bug Report
+about: Create a report to help us improve the learning platform
+title: '[BUG] '
+labels: ['bug', 'needs-triage']
+assignees: ''
+---
+
+## Bug Description
+A clear and concise description of what the bug is.
+
+## Steps to Reproduce
+1. Go to '...'
+2. Click on '....'
+3. Scroll down to '....'
+4. See error
+
+## Expected Behavior
+A clear and concise description of what you expected to happen.
+
+## Actual Behavior
+A clear and concise description of what actually happened.
+
+## Screenshots
+If applicable, add screenshots to help explain your problem.
+
+## Environment Information
+- **Device**: Desktop/Mobile/Tablet
+- **Browser**: Chrome, Firefox, Safari, Edge
+- **Browser Version**: 
+- **Operating System**: Windows, macOS, Linux, iOS, Android
+- **Screen Size**: 
+
+## Learning Context
+- **Unit**: Which unit were you working on?
+- **Lesson**: Which specific lesson or page?
+- **Code Example**: Was this related to a specific code example?
+
+## Additional Context
+Add any other context about the problem here.
+
+## Impact
+- [ ] Blocks learning progress
+- [ ] Affects code playground functionality
+- [ ] UI/UX issue
+- [ ] Performance issue
+- [ ] Accessibility issue
