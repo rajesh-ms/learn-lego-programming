@@ -1,0 +1,26 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/Azure/azure-dev/main/schemas/v1.0/azure.yaml.json
+
+name: learn-lego-platform
+metadata:
+  template: learn-lego-platform@0.0.1-beta
+
+services:
+  learn-lego-webapp:
+    project: .
+    language: ts
+    host: containerapp
+
+hooks:
+  predeploy:
+    posix:
+      shell: sh
+      run: |
+        echo "Building Next.js application..."
+        npm ci
+        npm run build
+    windows:
+      shell: pwsh
+      run: |
+        echo "Building Next.js application..."
+        npm ci
+        npm run build
