@@ -5,5 +5,9 @@
   "keyVaultVaults": "kv-",
   "containerRegistryRegistries": "cr",
   "appManagedEnvironments": "cae-",
-  "appContainerApps": "ca-"
+  "appContainerApps": "ca-",
+  "networkVirtualNetworks": "vnet-",
+  "networkPublicIPAddresses": "pip-",
+  "networkApplicationGateways": "agw-",
+  "networkNetworkSecurityGroups": "nsg-"
 }

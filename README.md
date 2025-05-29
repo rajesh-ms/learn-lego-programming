@@ -2,10 +2,11 @@
 
 A comprehensive web-based learning platform for teaching LEGO robotics programming using Python. This interactive educational resource provides step-by-step lessons, hands-on projects, and coding examples for students learning robotics programming.
 
-[![Deployed on Azure](https://img.shields.io/badge/Deployed%20on-Azure%20Container%20Apps-blue?logo=microsoft-azure)](https://ca-4qqvoafud54ik.victorioussmoke-3eca8c2b.eastus.azurecontainerapps.io/)
+[![Deployed on Azure](https://img.shields.io/badge/Deployed%20on-Azure%20Container%20Apps-blue?logo=microsoft-azure)](https://azure.microsoft.com/services/container-apps/)
 [![Built with Next.js](https://img.shields.io/badge/Built%20with-Next.js%2015-black?logo=next.js)](https://nextjs.org/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-Ready-blue?logo=typescript)](https://www.typescriptlang.org/)
 [![Tailwind CSS](https://img.shields.io/badge/Styled%20with-Tailwind%20CSS-38B2AC?logo=tailwind-css)](https://tailwindcss.com/)
+[![Secured by WAF](https://img.shields.io/badge/Secured%20by-Azure%20WAF-red?logo=microsoft-azure)](https://azure.microsoft.com/services/web-application-firewall/)
 
 ## 🚀 Features
 
@@ -17,14 +18,30 @@ A comprehensive web-based learning platform for teaching LEGO robotics programmi
 - **Modern UI**: Clean, educational interface built with Tailwind CSS
 - **Progress Tracking**: Navigate through structured learning paths
 - **Learning Resources**: Comprehensive guides, tools, and references
-- **Cloud Deployment**: Fully containerized and deployed on Azure Container Apps
+- **Secure Architecture**: Protected by Azure Application Gateway with Web Application Firewall
+- **Enterprise-Grade**: VNet isolation, private networking, and comprehensive monitoring
+
+## 🔒 Security & Architecture
+
+This platform is built with enterprise-grade security and follows Azure Well-Architected Framework principles:
+
+- **🛡️ Web Application Firewall**: OWASP 3.2 protection against common web attacks
+- **🌐 Private Networking**: Container Apps deployed in isolated VNet subnets
+- **🔐 Zero-Trust Architecture**: Application Gateway as the only public entry point
+- **📊 Comprehensive Monitoring**: Application Insights, Log Analytics, and WAF logging
+- **🚀 Auto-Scaling**: Container Apps with consumption-based scaling
+- **🔑 Managed Identity**: Secure, passwordless authentication between Azure services
+
+See [Infrastructure Architecture](./infra/ARCHITECTURE.md) for detailed security and deployment information.
 
 ## 🌐 Live Application
 
-- **Production**: [https://ca-4qqvoafud54ik.victorioussmoke-3eca8c2b.eastus.azurecontainerapps.io/](https://ca-4qqvoafud54ik.victorioussmoke-3eca8c2b.eastus.azurecontainerapps.io/)
-- **Development Server**: http://localhost:3001
-- **Built with**: Next.js 15.3.2, TypeScript, Tailwind CSS
-- **Deployment**: Azure Container Apps with Infrastructure as Code (Bicep)
+The application is deployed with a secure, production-ready architecture on Azure:
+
+- **Public Access**: Through Azure Application Gateway with WAF protection
+- **Internal Services**: Private Container Apps Environment with VNet integration
+- **Monitoring**: Real-time telemetry and security monitoring
+- **Deployment**: Infrastructure as Code using Azure Bicep
 
 
 ## 📚 Curriculum Structure
@@ -73,20 +90,55 @@ Complex topics like PID controllers, line following, and autonomous navigation
 - **Styling**: Tailwind CSS
 - **Syntax Highlighting**: React Syntax Highlighter with Prism
 - **Code Examples**: Python with PyBricks library
-- **Deployment**: Azure Container Apps
-- **Infrastructure**: Bicep (Infrastructure as Code)
+- **Infrastructure**: Azure Bicep (Infrastructure as Code)
 - **Containerization**: Docker with multi-stage builds
+- **Security**: Azure Application Gateway with WAF
+- **Monitoring**: Application Insights, Log Analytics
 
-## 🚀 Deployment Architecture
+## 🏗️ Secure Cloud Architecture
 
-This application is deployed on **Azure Container Apps** with the following architecture:
+This application deploys with enterprise-grade security on **Azure** using a multi-layered architecture:
 
-- **Container Registry**: Azure Container Registry for Docker images
-- **Container Apps**: Serverless container hosting with auto-scaling
-- **Application Insights**: Monitoring and telemetry
-- **Log Analytics**: Centralized logging and diagnostics
-- **Key Vault**: Secure secrets management
-- **Managed Identity**: Azure AD authentication for secure resource access
+### 🌐 Network Architecture
+```
+Internet → Application Gateway (WAF) → VNet → Container Apps Environment → Container App
+```
+
+### 🔧 Infrastructure Components
+- **Application Gateway with WAF**: Public entry point with OWASP 3.2 protection
+- **Virtual Network**: Isolated networking with dedicated subnets
+- **Container Apps Environment**: Private, VNet-integrated container hosting
+- **Container Registry**: Secure Docker image storage
+- **Application Insights**: Real-time performance monitoring
+- **Log Analytics**: Centralized logging and security analytics
+- **Key Vault**: Encrypted secrets and certificate management
+- **Managed Identity**: Passwordless authentication between services
+
+### 🛡️ Security Features
+- **WAF Protection**: Blocks SQL injection, XSS, and OWASP Top 10 attacks
+- **Private Networking**: Container App not directly accessible from internet
+- **VNet Isolation**: Network segmentation with dedicated subnets
+- **Zero-Trust Model**: Application Gateway as single point of entry
+- **Comprehensive Monitoring**: Security events and performance metrics
+
+## 🚀 Quick Deployment
+
+Deploy the secure infrastructure and application with one command:
+
+```powershell
+# Clone and navigate to the project
+git clone https://github.com/your-org/learn-lego-programming.git
+cd learn-lego-programming
+
+# Deploy secure infrastructure
+./infra/deploy.ps1
+```
+
+This will provision:
+- ✅ Application Gateway with WAF
+- ✅ Private VNet with Container Apps
+- ✅ Monitoring and logging
+- ✅ Security scanning and validation
 
 ## 🏃‍♂️ Local Development
 
@@ -123,41 +175,83 @@ This application is deployed on **Azure Container Apps** with the following arch
 
 ## ☁️ Azure Deployment
 
-This project includes complete Infrastructure as Code (IaC) using Bicep templates and Azure Developer CLI (azd) for easy deployment.
+This project includes complete **Infrastructure as Code (IaC)** using Bicep templates with enterprise-grade security for production deployment.
 
 ### Prerequisites
-- Azure CLI
-- Azure Developer CLI (azd)
+- Azure CLI (`az login`)
+- Azure Developer CLI (`azd`)
 - Docker Desktop
+- PowerShell (for deployment scripts)
 
-### Deploy to Azure
+### 🚀 Secure Production Deployment
 
-1. **Initialize Azure Developer CLI**
-   ```bash
-   azd init
-   ```
+**Option 1: Quick Deployment**
+```powershell
+# Use the automated deployment script
+./infra/deploy.ps1
+```
 
-2. **Deploy to Azure**
-   ```bash
-   azd up
-   ```
+**Option 2: Manual Deployment**
+```bash
+# Initialize and deploy
+azd init
+azd up
+```
 
-This will:
-- Create all required Azure resources using Bicep templates
-- Build and push the Docker image to Azure Container Registry
-- Deploy the application to Azure Container Apps
-- Configure monitoring and logging
+This will create a **secure, production-ready infrastructure**:
 
-### Infrastructure Components
+### 🏗️ Infrastructure Components
 
-- **Resource Group**: `rg-learn-lego-{env}`
+#### Public Layer
+- **Application Gateway**: `agw-{resourceToken}` with WAF protection
+- **Public IP**: `pip-{resourceToken}` with DNS name
+
+#### Network Layer  
+- **Virtual Network**: `vnet-{resourceToken}` (10.0.0.0/16)
+  - Container Apps Subnet (10.0.1.0/24)
+  - Application Gateway Subnet (10.0.2.0/24)
+  - Private Endpoint Subnet (10.0.3.0/24)
+
+#### Application Layer
+- **Container Apps Environment**: `cae-{resourceToken}` (private, VNet-integrated)
+- **Container App**: `ca-{resourceToken}` (internal ingress only)
 - **Container Registry**: `cr{resourceToken}`
-- **Container Apps Environment**: `cae-{resourceToken}`
-- **Container App**: `ca-{resourceToken}`
-- **Log Analytics Workspace**: `log-{resourceToken}`
-- **Application Insights**: `appi-{resourceToken}`
-- **Key Vault**: `kv-{resourceToken}`
-- **Managed Identity**: `id-{resourceToken}`
+
+#### Security & Monitoring
+- **Key Vault**: `kv-{resourceToken}` (secrets management)
+- **Application Insights**: `appi-{resourceToken}` (telemetry)
+- **Log Analytics**: `log-{resourceToken}` (logging)
+- **Managed Identity**: `id-{resourceToken}` (authentication)
+
+### 🛠️ Management Scripts
+
+```powershell
+# Monitor infrastructure health
+./infra/monitor.ps1 -Health
+
+# Security validation and testing
+./infra/security-test.ps1 -WafTest
+
+# Detailed monitoring with WAF logs
+./infra/monitor.ps1 -Detailed -WafLogsHours 24
+```
+
+### 🔄 Deployment Process
+
+1. **Infrastructure Validation**: Bicep template validation
+2. **Security Configuration**: WAF rules, private networking
+3. **Resource Provisioning**: ~10-15 minutes (Application Gateway)
+4. **Application Deployment**: Container build and deployment
+5. **Health Verification**: Endpoint and security testing
+
+### 📊 Post-Deployment
+
+After successful deployment:
+- ✅ Access application via Application Gateway FQDN
+- ✅ Monitor security events in Azure portal
+- ✅ Review WAF logs for blocked attacks
+- ✅ Configure HTTPS with SSL certificates
+- ✅ Set up alerting and monitoring rules
 
 ## 📱 Available Scripts
 
@@ -186,13 +280,42 @@ The application includes:
 - **Auto-scaling**: Automatic scaling based on demand
 - **SSL/TLS**: Secure HTTPS connections
 
-## 🔒 Security Features
+## 🔒 Enterprise Security Features
 
-- **Managed Identity**: No stored secrets for Azure resource access
-- **Key Vault**: Secure storage for sensitive configuration
-- **Container Security**: Non-root user, minimal base image
-- **HTTPS Only**: All traffic encrypted in transit
-- **Resource Isolation**: Dedicated container environment
+### 🛡️ Web Application Firewall (WAF)
+- **OWASP 3.2 Rule Set**: Protection against top web vulnerabilities
+- **SQL Injection Protection**: Blocks database attack attempts
+- **XSS Prevention**: Filters cross-site scripting attacks
+- **DDoS Mitigation**: Built-in distributed denial of service protection
+- **Custom Rules**: Configurable security policies
+
+### 🌐 Network Security
+- **Private Networking**: Container Apps not directly accessible from internet
+- **VNet Isolation**: Dedicated virtual network with subnet segmentation
+- **Zero-Trust Architecture**: Application Gateway as single entry point
+- **Internal Traffic Only**: Backend services communicate over private network
+- **Network Security Groups**: Configurable traffic filtering rules
+
+### 🔐 Identity & Access Management
+- **Managed Identity**: Passwordless authentication between Azure services
+- **Key Vault Integration**: Encrypted storage for secrets and certificates
+- **RBAC**: Role-based access control with least privilege principle
+- **Azure AD Integration**: Enterprise identity management
+
+### 📊 Security Monitoring
+- **WAF Logs**: Real-time attack detection and blocking
+- **Security Analytics**: Log Analytics integration for threat analysis
+- **Application Insights**: Performance and security event monitoring
+- **Alert Rules**: Automated notifications for security events
+- **Compliance Reporting**: Built-in security and compliance dashboards
+
+## 📈 Performance & Scalability
+
+- **Auto-scaling**: Container Apps scale 1-10 replicas based on demand
+- **Load Balancing**: Application Gateway distributes traffic efficiently
+- **Health Probes**: Automatic health monitoring and failover
+- **CDN Ready**: Optimized for Azure Front Door integration
+- **Global Deployment**: Multi-region architecture support
 
 ## 📖 Curriculum Source
 
